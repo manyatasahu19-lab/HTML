@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Zoo Rescue Tracker</title>
+    <style>
+        body {font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f9ff;}
+        header {background: #4da6ff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;}
+        .container {padding: 20px;
+            position: relative;}
+        .card {width: 250px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            float: left;
+            position: relative}
+        .badge {position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;}
+        .fixed-help {position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;}
+        .footer {clear: both;
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐾 Zoo Rescue Tracker</h1>
+        <p>Tracking rescued animals and their recovery</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="badge">Critical</div>
+            <h3>Lion</h3>
+            <p>Status: Injured leg</p>
+            <p>Location: Rescue Center A</p>
+        </div>
+        <div class="card">
+            <div class="badge" style="background: orange;">Recovering</div>
+            <h3>Elephant</h3>
+            <p>Status: Under treatment</p>
+            <p>Location: Rescue Center B</p>
+        </div>
+        <div class="card">
+            <div class="badge" style="background: green;">Stable</div>
+            <h3>Deer</h3>
+            <p>Status: Healthy</p>
+            <p>Location: Forest Zone</p>
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</body>
+</html>
