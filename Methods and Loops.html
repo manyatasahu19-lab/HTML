@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Methods and Loops Project</title>
+    <style>
+        body {font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px;}
+h1 {color: #333;}
+.box {background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
+p {font-size: 18px;}
+    </style>
+</head>
+<body>
+<h1>Methods and Loops Project</h1>
+<div class="box">
+        <h2>Random Numbers</h2>
+        <div id="randomNumbers"></div>
+    </div>
+<div class="box">
+        <h2>Current Date and Time</h2>
+        <p id="date"></p>
+    </div>
+<div class="box">
+        <h2>Rounded Random Number</h2>
+        <p id="roundedNumber"></p>
+    </div>
+<script>
+        let randomOutput = "";
+        for (let i = 1; i <= 5; i++) {
+            let num = Math.random();
+            randomOutput += "Random Number " + i + ": " + num + "<br>";}
+        document.getElementById("randomNumbers").innerHTML = randomOutput;
+        let currentDate = new Date();
+        document.getElementById("date").innerHTML = currentDate;
+        let randomNum = Math.random() * 100;
+        let rounded = Math.round(randomNum);
+        document.getElementById("roundedNumber").innerHTML = rounded;
+    </script>
+    </body>
+    </html>
