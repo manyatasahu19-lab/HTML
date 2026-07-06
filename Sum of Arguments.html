@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sum of Arguments & Trigonometry</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f8ff;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📊 Sum of Arguments & Trigonometric Values</h1>
+
+    <div class="box" id="output"></div>
+
+    <script>
+        // Function to calculate sum of arguments
+        function sumOfArguments(...numbers) {
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+            return sum;
+        }
+
+        // Function to convert degree to radians
+        function toRadians(degree) {
+            return degree * (Math.PI / 180);
+        }
+
+        let output = document.getElementById("output");
+
+        // Sum Example
+        let sumResult = sumOfArguments(10, 20, 30, 40);
+        output.innerHTML += "<h3>🔢 Sum of Arguments</h3>";
+        output.innerHTML += "Numbers: 10, 20, 30, 40 <br>";
+        output.innerHTML += "Sum = " + sumResult + "<br><br>";
+
+        // Trigonometric Values
+        output.innerHTML += "<h3>📐 Trigonometric Values</h3>";
+
+        let degrees = [0, 30, 45, 60, 90];
+
+        for (let i = 0; i < degrees.length; i++) {
+            let deg = degrees[i];
+            let rad = toRadians(deg);
+
+            output.innerHTML +=
+                "Angle: " + deg + "° <br>" +
+                "sin = " + Math.sin(rad).toFixed(2) + "<br>" +
+                "cos = " + Math.cos(rad).toFixed(2) + "<br>" +
+                "tan = " + Math.tan(rad).toFixed(2) + "<br><br>";
+        }
+    </script>
+
+</body>
+
+</html>
