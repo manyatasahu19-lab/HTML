@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My digital zoo manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: aliceblue;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #ff5a43;
+        }
+
+        #zoo {
+            border: 2px solid #ff5a43;
+            width: 300px;
+            margin: 16px auto;
+            padding: 12px;
+            border-radius: 10px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .zone {
+            border: 1px solid #ff5a43;
+            margin: 6px 0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        button {
+            background: #ff5a43;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Zoo</h1>
+    <p>Click buttons to manage your zoo 🐾</p>
+
+    <div id="zoo">
+        <div class="zone">Zone 1: <span id="zone1"></span></div>
+        <div class="zone">Zone 2: <span id="zone2"></span></div>
+        <div class="zone">Zone 3: <span id="zone3"></span></div>
+        <div class="zone">Total Animals: <span id="total">0</span></div>
+    </div>
+
+    <br>
+
+    <button onclick="openZoo()">🐾 Open Zoo</button>
+    <button onclick="addAnimal()">➕ Add Animal</button>
+    <button onclick="resetZoo()">❌ Reset</button>
+
+    <p id="zoo-status"></p>
+
+    <script>
+
+        let animals = ["Lion", "Elephant", "Penguin", "Tiger", "Zebra", "Giraffe"];
+        let count = 0;
+
+        function openZoo() {
+
+            document.getElementById("zone1").innerHTML = "Lion";
+            document.getElementById("zone2").innerHTML = "Elephant";
+            document.getElementById("zone3").innerHTML = "Penguin";
+
+            count = 3;
+            updateTotal();
+
+            document.getElementById("zoo").style.backgroundColor = "lightgreen";
+
+            document.getElementById("zoo-status").innerHTML =
+                document.title + " is now open!";
+
+            // DOM learning 👇
+            console.log("Zoo parent:", document.getElementById("zoo").parentNode);
+            console.log("Zones (children):", document.getElementById("zoo").children);
+        }
+
+        function addAnimal() {
+
+            let randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+
+            if (!document.getElementById("zone1").innerHTML) {
+                document.getElementById("zone1").innerHTML = randomAnimal;
+            }
+            else if (!document.getElementById("zone2").innerHTML) {
+                document.getElementById("zone2").innerHTML = randomAnimal;
+            }
+            else if (!document.getElementById("zone3").innerHTML) {
+                document.getElementById("zone3").innerHTML = randomAnimal;
+            }
+            else {
+                alert("All zones are full!");
+                return;
+            }
+
+            count++;
+            updateTotal();
+
+            // change color every time
+            let colors = ["lightgreen", "lightblue", "lightyellow", "lavender"];
+            document.getElementById("zoo").style.backgroundColor =
+                colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function updateTotal() {
+            document.getElementById("total").innerHTML = count;
+        }
+
+        function resetZoo() {
+
+            document.getElementById("zone1").innerHTML = "";
+            document.getElementById("zone2").innerHTML = "";
+            document.getElementById("zone3").innerHTML = "";
+
+            count = 0;
+            updateTotal();
+
+            document.getElementById("zoo").style.backgroundColor = "white";
+
+            document.getElementById("zoo-status").innerHTML = "Zoo reset!";
+        }
+
+    </script>
+</body>
+
+</html>
