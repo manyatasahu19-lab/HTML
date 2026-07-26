@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Superhero Power Cards</title>
+    <style>
+        body {font-family: Arial;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            text-align: center;
+            color: white;
+            padding: 20px}
+h1 {margin-bottom: 20px;}
+#container {display: flex;
+            flex-wrap: wrap;
+            justify-content: center;}
+.card {background: white;
+            color: black;
+            width: 220px;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;}
+.card:hover {transform: scale(1.05);}
+.power {font-weight: bold;
+            color: #ff5a43;}
+button {margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #ff5a43;
+            color: white;
+            cursor: pointer;}
+    </style>
+</head>
+<body>
+<h1>🦸 My Superhero Power Cards</h1>
+<button onclick="showHeroes()">Show Heroes</button>
+<div id="container"></div>
+<script>
+        class Superhero {constructor(name, power, city) {
+                this.name = name;
+                this.power = power;
+                this.city = city;}
+displayCard() {return `<div class="card">
+                        <h2>${this.name}</h2>
+                        <p class="power">Power: ${this.power}</p>
+                        <p>City: ${this.city}</p>
+                    </div> `;}}
+const hero1 = new Superhero("Thunder Girl", "Electric Shock", "Delhi");
+        const hero2 = new Superhero("Shadow Ninja", "Invisibility", "Tokyo");
+        const hero3 = new Superhero("Fire Master", "Fire Control", "New York");
+        const hero4 = new Superhero("Aqua Boy", "Water Control", "Sydney");
+const heroes = [hero1, hero2, hero3, hero4];
+function showHeroes() {let output = "";
+            heroes.forEach(hero => {
+                output += hero.displayCard();});
+document.getElementById("container").innerHTML = output; }
+    </script>
+</body>
+</html>
