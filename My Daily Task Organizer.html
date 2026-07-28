@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Daily Task Organizer</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff5a43;
+        }
+
+        #container {
+            background: white;
+            border: 2px solid #ff5a43;
+            border-radius: 10px;
+            padding: 20px;
+            width: 320px;
+            margin: auto;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 20px;
+            background: #ff5a43;
+            color: white;
+            cursor: pointer;
+        }
+
+        ul {
+            text-align: left;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📝 My Daily Task Organizer</h1>
+
+    <div id="container">
+        <button onclick="sortTasks()">Sort Tasks</button>
+        <button onclick="reverseTasks()">Reverse Tasks</button>
+        <button onclick="sortByTime()">Sort by Time</button>
+        <button onclick="addLabels()">Add Time Labels</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        let tasks = [
+            { name: "Study", time: "16:00" },
+            { name: "Wake Up", time: "07:00" },
+            { name: "Play", time: "18:30" },
+            { name: "Lunch", time: "13:00" }
+        ];
+
+        function displayTasks() {
+            let list = document.getElementById("taskList");
+            list.innerHTML = "";
+
+            tasks.forEach(task => {
+                let li = document.createElement("li");
+                li.textContent = `${task.name} - ${task.time}`;
+                list.appendChild(li);
+            });
+        }
+
+        function sortTasks() {
+            tasks.sort((a, b) => a.name.localeCompare(b.name));
+            displayTasks();
+        }
+
+        function reverseTasks() {
+            tasks.reverse();
+            displayTasks();
+        }
+
+        function sortByTime() {
+            tasks.sort((a, b) => a.time.localeCompare(b.time));
+            displayTasks();
+        }
+
+
+        function addLabels() {
+            tasks = tasks.map(task => {
+                let hour = parseInt(task.time.split(":")[0]);
+                let label = hour >= 12 ? "PM" : "AM";
+                return {
+                    name: task.name,
+                    time: task.time + " " + label
+                };
+            });
+            displayTasks();
+        }
+
+       
+        displayTasks();
+    </script>
+
+</body>
+
+</html>
