@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>School Event Data Viewer</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 420px;
+            margin: auto;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #status {
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        .event-box {
+            text-align: left;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .json-box {
+            background: #272822;
+            color: #00ffcc;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 12px;
+            text-align: left;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>School Event Data Viewer</h2>
+        <button onclick="loadEvent()">Load Event Data</button>
+        <div id="status"></div>
+        <div id="jsonOutput" class="json-box" style="display:none;"></div>
+        <div id="eventOutput" class="event-box" style="display:none;"></div>
+    </div>
+
+    <script>
+        function loadEvent() {
+            const status = document.getElementById("status");
+            const jsonBox = document.getElementById("jsonOutput");
+            const eventBox = document.getElementById("eventOutput");
+
+            status.innerText = "Loading...";
+            jsonBox.style.display = "none";
+            eventBox.style.display = "none";
+
+            setTimeout(() => {
+                const eventData = {
+                    name: "Annual Sports Day",
+                    date: "15 August 2026",
+                    time: "9:00 AM",
+                    venue: "School Ground",
+                    participants: 250,
+                    coordinator: "Mr. Sharma"
+                };
+
+                const jsonData = JSON.stringify(eventData, null, 2);
+                jsonBox.innerText = jsonData;
+                jsonBox.style.display = "block";
+
+                const parsedData = JSON.parse(jsonData);
+
+                eventBox.innerHTML = `
+      <h3>Event Details</h3>
+      <p><b>Name:</b> ${parsedData.name}</p>
+      <p><b>Date:</b> ${parsedData.date}</p>
+      <p><b>Time:</b> ${parsedData.time}</p>
+      <p><b>Venue:</b> ${parsedData.venue}</p>
+      <p><b>Participants:</b> ${parsedData.participants}</p>
+      <p><b>Coordinator:</b> ${parsedData.coordinator}</p>
+    `;
+                eventBox.style.display = "block";
+
+                status.innerText = "Loaded";
+            }, 2000);
+        }
+    </script>
+
+</body>
+
+</html>
