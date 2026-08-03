@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Text Fixer Tool</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 90%;
+            margin: 8px;
+            padding: 8px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        #output {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>🛠 Text Fixer Tool</h2>
+
+        <!-- Input -->
+        <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+
+        <!-- Replace -->
+        <input type="text" id="findWord" placeholder="Word to find">
+        <input type="text" id="replaceWord" placeholder="Replace with">
+
+        <!-- Buttons -->
+        <button onclick="checkType()">Check Data Type</button>
+        <button onclick="convertValue()">Convert to Number</button>
+        <button onclick="replaceText()">Replace Words</button>
+
+        <!-- Output -->
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function getInput() {
+            return document.getElementById("textInput").value;
+        }
+
+        function checkType() {
+            let input = getInput();
+            let result = typeof input;
+            document.getElementById("output").innerText =
+                "Data Type: " + result;
+        }
+
+        function convertValue() {
+            let input = getInput();
+
+            try {
+                let converted = Number(input);
+
+                if (isNaN(converted)) {
+                    throw "Cannot convert to number!";
+                }
+
+                document.getElementById("output").innerText =
+                    "Converted Value: " + converted;
+            } catch (error) {
+                document.getElementById("output").innerText =
+                    "Error: " + error;
+            }
+        }
+
+        function replaceText() {
+            let text = getInput();
+            let find = document.getElementById("findWord").value;
+            let replace = document.getElementById("replaceWord").value;
+
+            try {
+                if (find === "") {
+                    throw "Please enter a word to find!";
+                }
+
+                let newText = text.replaceAll(find, replace);
+
+                document.getElementById("output").innerText =
+                    "Updated Text: " + newText;
+            } catch (error) {
+                document.getElementById("output").innerText =
+                    "Error: " + error;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
