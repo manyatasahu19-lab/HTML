@@ -1,0 +1,50 @@
+function showInputs() {
+let shape = document.getElementById("shape").value;
+let inputDiv = document.getElementById("inputs");
+
+if (shape === "square") {
+inputDiv.innerHTML = `<input type="number" id="side" placeholder="Enter side">`;
+}
+else if (shape === "rectangle") {
+inputDiv.innerHTML = `
+<input type="number" id="length" placeholder="Enter length">
+<input type="number" id="width" placeholder="Enter width">`;
+}
+else if (shape === "triangle") {
+inputDiv.innerHTML = `
+<input type="number" id="a" placeholder="Side A">
+<input type="number" id="b" placeholder="Side B">
+<input type="number" id="c" placeholder="Side C">`;
+}
+else if (shape === "circle") {
+inputDiv.innerHTML = `<input type="number" id="radius" placeholder="Enter radius">`;
+}
+}
+
+function calculate() {
+let shape = document.getElementById("shape").value;
+let result = 0;
+
+if (shape === "square") {
+let side = document.getElementById("side").value;
+result = 4 * side;
+}
+else if (shape === "rectangle") {
+let l = document.getElementById("length").value;
+let w = document.getElementById("width").value;
+result = 2 * (Number(l) + Number(w));
+}
+else if (shape === "triangle") {
+let a = document.getElementById("a").value;
+let b = document.getElementById("b").value;
+let c = document.getElementById("c").value;
+result = Number(a) + Number(b) + Number(c);
+}
+else if (shape === "circle") {
+let r = document.getElementById("radius").value;
+result = 2 * Math.PI * r;
+}
+
+document.getElementById("result").innerText =
+"Perimeter: " + result.toFixed(2);
+}
