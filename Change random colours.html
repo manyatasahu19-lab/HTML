@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Random Colours</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #6c63ff;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 10px;
+            background: #333;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+            transform: scale(1.05);
+        }
+
+        #colorCode {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🎨 Random Colour Changer</h1>
+        <p>Click the button to change the background!</p>
+
+        <button onclick="changeColour()">Change Colour</button>
+
+        <div id="colorCode">#6C63FF</div>
+    </div>
+
+    <script>
+        function changeColour() {
+
+            // Generate random numbers for RGB
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+
+            // Create the RGB colour
+            let randomColour = `rgb(${red}, ${green}, ${blue})`;
+
+            // Change the background colour
+            document.body.style.backgroundColor = randomColour;
+
+            // Display the colour code
+            document.getElementById("colorCode").textContent = randomColour;
+        }
+    </script>
+
+</body>
+
+</html>
