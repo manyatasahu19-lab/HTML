@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>restaurant navigation bar</title>
+    <style>
+        body{margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lavender;}
+            .topnav{overflow: hidden;
+                background-color: #333;}
+                .topnav a{float: left;
+                    color: #1affa3; 
+                    text-align: center; 
+                    padding: 14px 16px; 
+                    text-decoration: none; font-size: 17px; }
+.topnav a:hover{background-color: #ddd;
+    color: black;}
+    .topnan a.active{background-color: #ffe066;
+        color: black;}
+        .home{
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #ffcc80;}
+            .home h1{
+                font-size: 45px;
+                color: #8b0000;}
+                .home p{font-size: 22px;}
+                section { padding: 60px 20px; text-align: center; } 
+                section h2 { color: #8b0000; font-size: 32px; }
+.menu { background-color: #fff0d9; }
+.food { display: inline-block;
+     background-color: white; 
+     width: 200px; margin: 15px; 
+     padding: 20px; 
+     border-radius: 10px; 
+     box-shadow: 0 4px 10px gray; }
+     .food h3{color: #e65c00;}
+     .gallery{color: #ffe6cc;}
+     .gallery-item{display: inline-block;
+        width: 180px;
+        height: 140px;
+        margin: 10px;
+        padding-top: 50px;
+        background-color: #ffd480;
+        border-radius: 10px;
+        font-size: 45px;}
+        .contact { background-color: #fff2cc; }
+        footer { background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;}
+            </style>
+            </head>
+            <body>
+                <div class="topnav"></div>
+                <a class="active" href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#menu">menu</a>
+                <a href="#gallery">food gallery</a>
+                <a href="#contact">Contact</a> </div>
+                <div class="home" id="home">
+                    <h1>🍴 Welcome to Foodie Restaurant 🍴</h1>
+                    <p>Delicious Food • Great Taste • Happy Moments</p>
+                </div>
+                <section id="about">
+                    <h2>About Us</h2>
+                    <p> Welcome to Foodie Restaurant! We serve fresh, delicious and tasty food for everyone. </p>
+                    <p> Our goal is to make every meal special and enjoyable. </p>
+                </section>
+                <section class="menu" id="menu">
+                    <h2>Our Menu</h2>
+                    <div class="food">
+                        <h3>Pizza</h3>
+                        <p>Cheesy and delicious</p> <b>₹199</b>
+                    </div>
+                    <div class="food">
+                        <h3> Burger</h3>
+                        <p>Fresh and crispy</p> <b>₹149</b>
+                    </div>
+                    <div class="food">
+                        <h3> Pasta</h3>
+                        <p>Creamy and tasty</p> <b>₹179</b>
+                    </div>
+                    <div class="food">
+                        <h3>Cake</h3>
+                        <p>Sweet and delicious</p> <b>₹99</b>
+                    </div>
+                    </section>
+<section class="gallery" id="gallery">
+    <h2>Food Gallery</h2>
+    <div class="gallery-item">🍕</div>
+    <div class="gallery-item">🍔</div>
+    <div class="gallery-item">🍝</div>
+    <div class="gallery-item">🍰</div>
+    <div class="gallery-item">🍟</div>
+    <div class="gallery-item">🥗</div>
+</section>
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Delhi, India</p>
+    <p>📞 +91 98765 43210</p>
+    <p>✉️ foodie@gmail.com</p>
+</section>
+<footer>
+    <p>© 2026 Foodie Restaurant</p>
+</footer>
+</body>
+</html>
